@@ -15,6 +15,7 @@ module.exports = merge(common, {
         static: './build',
     },
     stats: {
-        errorDetails: true
+        errorDetails: true,
+        loggingDebug: ['sass-loader'],
     }
 })
