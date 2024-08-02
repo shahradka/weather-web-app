@@ -1,5 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require("dotenv-webpack");
+
 
 
 module.exports = {
@@ -31,7 +33,11 @@ module.exports = {
         ]
     },
     resolve:{
-        extensions: [".tsx", ".ts", ".js"]
+        extensions: [".tsx", ".ts", ".js"],
+          alias: {
+            ["@components"]: path.resolve(__dirname, 'src/components/'),
+            ["@redux"]: path.resolve(__dirname, 'src/redux/'),
+          },
     },
     output:{
         filename: "bundle.js",
@@ -40,6 +46,10 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
           template: './src/index.html'
-        })
+        }),
+        new Dotenv({
+          path: './.env',
+          safe: true, // load .env.example (defaults to "false" which does not use dotenv-safe)
+        }),
       ]
 }
