@@ -3,7 +3,8 @@
     "baseUrl": "./src", 
     "paths": {
       "@components/*": ["components/*"],
-      "@redux/*": ["redux/*"]
+      "@redux/*": ["redux/*"],
+      "@sass/*": ["css/sass/*"]
     },
     "rootDir": "src",
     "target": "es5",

@@ -37,6 +37,7 @@ module.exports = {
           alias: {
             ["@components"]: path.resolve(__dirname, 'src/components/'),
             ["@redux"]: path.resolve(__dirname, 'src/redux/'),
+            ["@sass"]: path.resolve(__dirname, 'src/css/sass'),
           },
     },
     output:{
@@ -49,7 +50,7 @@ module.exports = {
         }),
         new Dotenv({
           path: './.env',
-          safe: true, // load .env.example (defaults to "false" which does not use dotenv-safe)
+          safe: true,
         }),
       ]
 }
