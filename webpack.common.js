@@ -31,7 +31,11 @@ module.exports = {
         ]
     },
     resolve:{
-        extensions: [".tsx", ".ts", ".js"]
+        extensions: [".tsx", ".ts", ".js"],
+          alias: {
+            ["@components"]: path.resolve(__dirname, 'src/components/'),
+            ["@redux"]: path.resolve(__dirname, 'src/redux/'),
+          },
     },
     output:{
         filename: "bundle.js",
