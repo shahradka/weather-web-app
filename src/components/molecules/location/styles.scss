@@ -1,0 +1,11 @@
+@import '@sass/_variables.scss';
+
+.location{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.location-label{
+    padding-inline: $spacing;
+}

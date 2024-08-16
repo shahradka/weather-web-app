@@ -1,0 +1,22 @@
+@import '@sass/_variables.scss';
+
+.weather-condition{
+    padding:$spacing;
+    text-align: center;
+}
+
+.sunny-color{
+    color: $yellow;
+}
+
+.rainy-color{
+    color:$sky-700
+}
+
+.snowy-color{
+    color: $sky-500;
+}
+
+.cloudy-color{
+    color: $sky-300;
+}
