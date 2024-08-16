@@ -1,0 +1,66 @@
+@use "sass:map";
+@import '@sass/_variables.scss';
+@import '@sass/_breakpoints';
+$headlines: 4;
+
+.text.bold {
+  font-weight: $font-bold;
+}
+
+.text {
+  letter-spacing: -0.2px;
+  padding:0px;
+  margin:0px;
+  font-family: $default-font-style-name;
+}
+
+.text.contrast {
+  color: $contrast-text-base;
+}
+
+.text.gray {
+  color: $gray-500;
+}
+
+.text.primary {
+  color: $primary-text;
+}
+
+@mixin generate-font-style($breakpoint) {
+
+  @for $i from 1 through $headlines{
+
+    .heading#{$i}-#{$breakpoint} {
+      font-size: map.get($font-sizes, "h"+$i+"-"+$breakpoint);
+      line-height: map.get($line-heights, "h"+$i+"-"+$breakpoint);
+    }
+
+  }
+
+}
+
+@each $breakpoints, $screenWidth in $breakpoints{
+  @include generate-font-style($breakpoints);
+}
+
+.text.normal-lg {
+  font-size: map.get($font-sizes, "normal-lg");
+  line-height: map.get($line-heights, "normal-lg");
+}
+
+
+.text.normal-sm {
+  font-size: map.get($font-sizes, "normal-sm");
+  line-height: map.get($line-heights, "normal-sm");
+}
+
+.text.small-lg {
+  font-size: map.get($font-sizes, "normal-lg");
+  line-height: map.get($line-heights, "normal-lg");
+}
+
+
+.text.small-sm {
+  font-size: map.get($font-sizes, "normal-sm");
+  line-height: map.get($line-heights, "normal-sm");
+}
