@@ -4,7 +4,9 @@
     "paths": {
       "@components/*": ["components/*"],
       "@redux/*": ["redux/*"],
-      "@sass/*": ["css/sass/*"]
+      "@sass/*": ["css/sass/*"],
+      "@api/*": ["api/*"],
+      "@hooks/*": ["hooks/*"],
     },
     "rootDir": "src",
     "target": "es5",

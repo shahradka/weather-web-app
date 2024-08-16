@@ -3,7 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require("dotenv-webpack");
 
 
-
 module.exports = {
     entry: './src/index.tsx',
     module:{
@@ -37,14 +36,16 @@ module.exports = {
           alias: {
             ["@components"]: path.resolve(__dirname, 'src/components/'),
             ["@redux"]: path.resolve(__dirname, 'src/redux/'),
-            ["@sass"]: path.resolve(__dirname, 'src/css/sass'),
+            ["@sass"]: path.resolve(__dirname, 'src/css/sass/'),
+            ["@api"]: path.resolve(__dirname, 'src/api/'),
+            ["@hooks"]: path.resolve(__dirname, 'src/hooks/'),
           },
     },
     output:{
         filename: "bundle.js",
-        path: path.resolve(__dirname, "dist")
-    },
-    plugins: [
+        path: path.resolve(__dirname, "dist"),
+      },
+      plugins: [
         new HtmlWebpackPlugin({
           template: './src/index.html'
         }),
