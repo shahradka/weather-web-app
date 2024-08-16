@@ -1,0 +1,9 @@
+@import '@sass/_variables.scss';
+
+.card{
+    border-radius: calc(4*$global-radius);
+    border:1px solid $sky-400;
+    padding: $spacing;
+    background-color: rgba($color: $sky-200, $alpha: 0.5);
+    box-shadow: 0px 0px 7px 5px $sky-300 inset;
+}
