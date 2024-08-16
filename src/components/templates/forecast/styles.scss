@@ -1,0 +1,10 @@
+@import '@sass/_variables.scss';
+
+.forecast{
+    justify-items: center;
+    padding: $spacing;
+}
+
+.forecast-cards{
+    padding-block: $spacing;
+}

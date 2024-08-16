@@ -1,0 +1,24 @@
+/**
+
+Use ( sm, md, lg, xl)-center-text to put text center in different screen width, Example: sm-center-text
+
+**/
+
+@mixin generate-responsive-classes($breakpoints: null){
+    $prefix: if($breakpoints == null, '', '#{$breakpoints}');
+
+    @for $i from 1 through $columns{
+        .#{$prefix}-center-text{
+            text-align: center; 
+         }
+        
+         .#{$prefix}-center-items{
+             justify-content: center;
+         }
+        
+         .#{$prefix}-hide{
+             display: none!important;
+         }
+        
+    }
+}

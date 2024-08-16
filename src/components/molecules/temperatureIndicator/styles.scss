@@ -1,0 +1,15 @@
+@import '@sass/_variables.scss';
+
+.temperature-indicator{
+    display: flex;
+    align-items: center;
+    padding: $spacing;
+}
+
+.max-indicator{
+    color:$red;
+}
+
+.min-indicator{
+    color:$blue;
+}

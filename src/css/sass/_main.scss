@@ -1,0 +1,20 @@
+@import './variables';
+
+html, body{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-size: 20px;
+    background-color: $background-color;
+}
+
+hr {
+  border: 1px solid $border-color; 
+}
+
+.flex{
+  display: flex;
+}

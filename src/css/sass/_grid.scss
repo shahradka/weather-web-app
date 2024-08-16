@@ -1,0 +1,33 @@
+/**
+
+Use grid-(xs, sm, md, lg)-col-(1,2,3,...,12) to create grid column with different width Example: grid-sm-col--1
+
+Use grid-span-(xs, sm, md, lg)-col-(1,2,3,...,12) to expand grid column width Example: grid-span-sm-col--1
+
+**/
+
+@import './variables';
+
+.grid{
+    display: grid;
+    column-gap: $column-gap;
+    row-gap: $row-gap;
+}
+
+$columns: 12;
+
+
+@mixin generate-grid-classes($breakpoints: null){
+    $infix: if($breakpoints == null, '', '-#{$breakpoints}');
+
+    @for $i from 1 through $columns{
+        .grid#{$infix}-col--#{$i}{
+            grid-template-columns: repeat(#{$i}, 1fr);
+        }
+        @if $i > 1{
+            .grid-span#{$infix}-col--#{$i}{
+                grid-column: span #{$i};
+            }
+        }
+    }
+}
