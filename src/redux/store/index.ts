@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import test from '../slices/testSlice'
+import forecast from '../slices/forecastSlice'
 
 export const store = configureStore({
     reducer: {
-        test
+        forecast,
     },
 })
 

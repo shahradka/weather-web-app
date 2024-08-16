@@ -1,10 +1,8 @@
 import axios from "axios";
-import { API_URL_ROOT } from "../constants/environments";
-
-console.log("API_URL_ROOT", API_URL_ROOT)
+import { WEATHER_API_URL } from "../constants/environments";
 
 const axios_instance = axios.create({
-    baseURL: API_URL_ROOT,
+    baseURL: WEATHER_API_URL,
     timeout: 1000,
   });
 
