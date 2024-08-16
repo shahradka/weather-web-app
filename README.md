@@ -10,8 +10,6 @@ For weather forecast utilze https://open-meteo.com Api
 
 ## How to run
 
-*Note: before run do not forget to set variable PARENT_APP_URL(landing-page app running url)* 
-
 Clone repository by this command
 
 ```
