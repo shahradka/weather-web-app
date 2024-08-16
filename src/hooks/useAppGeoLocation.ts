@@ -3,11 +3,12 @@ import { useCallback, useEffect, useState } from "react"
 
 const useAppGeoLocation = () => {    
     const [geoLocation, setGeoLocation] = useState<{lat:number, long:number}>();
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const setGeoLocationApp = useCallback((event: any) => {
-        if(event.data[MESSAGE_GEOLOCATION_NAME || ""] !== undefined)
+    const setGeoLocationApp = useCallback((event: {data:Record<string, string>}) => {    
+        const dataObj = event.data;    
+        const isKeyExists = Object.keys(dataObj).find(key => key === MESSAGE_GEOLOCATION_NAME);
+        if(isKeyExists)
             {
-                setGeoLocation(event.data[MESSAGE_GEOLOCATION_NAME || ""])
+                setGeoLocation(JSON.parse(dataObj[isKeyExists]));
             }
     }, [])
 

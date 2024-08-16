@@ -5,5 +5,8 @@ node_modules
 dist
 
 
-## Envirnoments
+## Envirnoments and config files
 .env
+.husky
+.firebase
+.github

@@ -3,10 +3,12 @@ import { useCallback, useEffect, useState } from "react"
 
 const useAppLoad = () => {    
     const [load, setLoad] = useState<string | undefined>();
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const setLoadApp = useCallback((event: any) => {
-        if(event.data[MESSAGE_LOAD_NAME || ""] !== undefined)
-            setLoad(event.data[MESSAGE_LOAD_NAME || ""])
+    const setLoadApp = useCallback((event: {data:Record<string, string>}) => {
+        const dataObj= event.data;
+        const isKeyExists = Object.keys(dataObj).find(key => key === MESSAGE_LOAD_NAME);
+
+        if(isKeyExists)
+            setLoad(dataObj[isKeyExists]);
     }, [])
 
     useEffect(() => {

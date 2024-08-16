@@ -5,16 +5,25 @@ import { IForecast } from "@components/templates/forecast/Forecast";
 import { useAppLoad } from "@hooks/useAppLoad";
 import { Empty } from "@components/molecules/empty";
 import { setParentWindowInfo } from "../../../utils/setInfo";
+import { useCurrentLocation } from "@hooks/useCurrentLocation";
+import { useAppGeoLocation } from "@hooks/useAppGeoLocation";
+import { Loading } from "@components/atoms/loading";
 
 const Forecast = lazy(() => import('@components/templates/forecast/Forecast'));
 
 const Weather = () => {
-    const {dailyForecast, loading} = useForecast();
+    const {dailyForecast, loading, dispatchWeatherForeCast} = useForecast();
+
+    const {currentCoord} = useCurrentLocation();
+    const {geoLocation} = useAppGeoLocation();
+
     const {loadApp} = useAppLoad();
 
     const dehydrateData = useMemo(() => {
         if(!loading)
             {
+                const currentWeather = convertToCurrentWeather(dailyForecast);
+                setParentWindowInfo(currentWeather);
                 return convertOpenMetroData(dailyForecast);
             }
             return {} as IForecast
@@ -22,14 +31,16 @@ const Weather = () => {
         
     useEffect(() => {
         if(loadApp){
-            const currentWeather = convertToCurrentWeather(dailyForecast);
-            setParentWindowInfo(currentWeather);
+            if(geoLocation)
+                dispatchWeatherForeCast(geoLocation);
+            else
+                dispatchWeatherForeCast(currentCoord);
         }
     }, [loadApp])
 
     return <div>
         <Suspense>
-            {loadApp ? 
+            {loadApp ? loading ? <Loading /> :
                 <Forecast currentWeatherData={dehydrateData.currentWeatherData} 
                 forecastWeatherData={dehydrateData.forecastWeatherData} /> : <Empty />
             }
