@@ -1,5 +1,5 @@
 @import "sass/variables";
-
-body{
-    background-color: $primary-base;
-}
+@import "sass/media";
+@import "sass/main";
+@import "sass/mixins";
+@import "sass/responsive";

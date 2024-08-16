@@ -1,0 +1,10 @@
+@import './grid';
+@import './breakpoints';
+@import './responsive';
+
+@each $breakpoints, $screenWidth in $breakpoints{
+    @media screen and (min-width: $screenWidth) {
+        @include generate-grid-classes($breakpoints);
+        @include generate-responsive-classes($breakpoints);
+    }
+}

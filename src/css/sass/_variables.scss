@@ -3,16 +3,15 @@
  Color Palette
 
 **/
-$primary-base: #5956CC;
-$secondary-base: #FFFFFF;
 
-$violet-100: #A9A6FA;
-$violet-200: #7471E5;
-$violet-300: #5956CC;
-$violet-400: #3C39B0;
-$violet-500: #201D8D;
-$violet-600: #272570;
-$violet-700: #02004F;
+
+$sky-100: #D5E8F6;
+$sky-200: #ACD1EC;
+$sky-300: #83BAE2;
+$sky-400: #5BA3D7;
+$sky-500: #338CCC;
+$sky-600: #1a679f;
+$sky-700: #06426d;
 
 
 $gray-100: #FFFFFF;
@@ -23,14 +22,108 @@ $gray-500: #787878;
 $gray-600: #585858;
 $gray-700: #000000;
 
+$red:#c31440; 
+$yellow: #e69c07;
+
+$blue:$sky-600;
+
+$primary-base: $sky-700;
+$secondary-base: $gray-100;
+$primary-text: $gray-700;
+$contrast-text-base:$gray-200;
+
+$border-color: $gray-200;
+$background-color: $sky-300;
+
 /**
 
 Padding, Margin and Column Gap
 
 **/
+$spacing: 1rem;
+$v-spacing: 1rem;
+$h-spacing: 1rem;
+$v-sm-spacing: 0.5rem;
+$h-sm-spacing: 0.5rem;
+$v-lg-spacing: 1rem;
+$h-lg-spacing: 1rem;
+$column-gap: 1rem;
+$row-gap: 1rem;
 
-$v-padding: 10px;
-$h-padding: 10px;
-$column-gap: 20px;
+/** 
 
+Font size
+
+**/
+
+$font-sizes: (
+    "h1-lg": 3rem,
+    "h2-lg": 2.7rem,
+    "h3-lg": 2.3rem,
+    "h4-lg": 1.8rem,
+    "normal-lg": 1rem,
+    "small-lg": 0.8rem,
+    "h1-sm": 2.7rem,
+    "h2-sm": 2.3rem,
+    "h3-sm": 1.8rem,
+    "h4-sm": 1rem,
+    "normal-sm": 0.8rem,
+    "small-sm": 0.75rem,
+);
+
+/** 
+
+Font weight
+
+**/
+
+$font-bold:800;
+$font-medium:400;
+
+/** 
+
+Font style
+
+**/
+
+$default-font-style-name: 'Helvetica';
+
+
+/**
+
+Line Height
+
+**/
+
+$line-heights: ( 
+    "h1-lg": 2.7rem,
+    "h2-lg": 2.3rem,
+    "h3-lg": 1.8rem,
+    "h4-lg": 1rem,
+    "normal-lg": 0.8rem,
+    "small-lg": 0.75rem,
+    "h1-sm": 2.3rem,
+    "h2-sm": 1.8rem,
+    "h3-sm": 1rem,
+    "h4-sm": 0.8em,
+    "normal-sm": 0.75rem,
+    "small-sm": 0.65rem
+);
+
+/**
+
+Border radius
+
+**/
+
+$global-radius: 5px;
+$fully-rounded: 50%;
+
+/**
+
+Misc
+
+**/
+
+$max-width: 640px;
 

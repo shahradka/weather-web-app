@@ -1,0 +1,9 @@
+@use 'sass:map';
+@import './variables';
+
+@mixin default-font-style(){
+    font-family: $default-font-style-name;
+    font-size: map.get($font-sizes, 'normal-lg');
+    line-height: map.get($line-heights, 'normal-lg');
+    color: $primary-text;
+}
