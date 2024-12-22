@@ -56,5 +56,6 @@ npm run test
 * react-toastify
 * other components are developed by myself.
 
+The development environment, webpack and testing library are configured in this project 
 
-For furture contact: email me at shahrad[dot]kashany[At]gmail.com.
+For future contact: email me at shahrad[dot]kashany[At]gmail.com.
