@@ -25,6 +25,15 @@ export const forecastSlice = createSlice({
       state.daily = action.payload;
       state.loading = false;
     })
+    .addCase(fetchWeatherForecast.rejected, (state, action) => {
+      state.error = action.payload as SerializedError; 
+      state.daily = undefined;
+      state.loading = false;
+    })
+    .addCase(fetchWeatherForecast.pending, (state) => {
+      state.loading = true;
+      state.error = undefined;
+    });
 
   },
 })

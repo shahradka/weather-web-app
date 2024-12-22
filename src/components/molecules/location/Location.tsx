@@ -5,26 +5,26 @@ import { HtmlHTMLAttributes } from "react";
 import "./styles.scss";
 
 interface ILocation extends HtmlHTMLAttributes<HTMLDivElement>{
-    lat:number
-    long:number
+    country:string
+    city:string
 }
 
-const Location = ({lat, long}:ILocation) => {
+const Location = ({city, country}:ILocation) => {
 
     return <div className="location">
 
         <Pin24 />
         <Text variant="small" color="gray" className="location-label">
-            Lat:
+            Country:
         </Text>
         <Text>
-            {lat?.toString()}
+            {country}
         </Text>
         <Text variant="small" color="gray" className="location-label">
-            Long:
+            City:
         </Text>
         <Text>
-            {long?.toString()}
+            {city}
         </Text>
     </div>
 }

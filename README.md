@@ -3,17 +3,17 @@
 ## descriptions
 
 This app showes weather for your locations in two different regions: 
-* weather banner: showes today weather condition and min, max temperatures.
-* weather cards: showes next six days weather condition and min, max temperatures.
 
-For weather forecast utilze https://open-meteo.com Api
+* weather cards: showes next six days weather condition and min, max temperatures in both Celsius and Fahrenheit.
+
+For weather forecast utilze https://www.weatherbit.io/ Api
 
 ## How to run
 
 Clone repository by this command
 
 ```
-https://github.com/shahradka/weather-app
+https://github.com/shahradka/weather-web-app.git
 
 ```
 
@@ -52,6 +52,8 @@ npm run test
 * React_router_dom
 * Husky
 * Eslint
+* react-switch
+* react-toastify
 * other components are developed by myself.
 
 

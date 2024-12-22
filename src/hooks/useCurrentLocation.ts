@@ -1,19 +1,20 @@
+import { DEFAULT_GEO_DEFAULT_LON } from "@constants/environments";
 import { useEffect, useState } from "react";
 
 const useCurrentLocation = () => {
 
     const [currentCoord, setCurrentCoord] = useState<{
         lat:number, 
-        long:number
-    }>({lat:35, long:59});
+        lon:number
+    }>({lat:Number(DEFAULT_GEO_DEFAULT_LON), lon:Number(DEFAULT_GEO_DEFAULT_LON)});
 
     useEffect(() => {
         if ("geolocation" in navigator) {
             navigator.geolocation.getCurrentPosition((position) => {
-                setCurrentCoord({lat:position.coords.latitude, long:position.coords.longitude})
+                setCurrentCoord({lat:position.coords.latitude, lon:position.coords.longitude})
               });
           } else {
-            setCurrentCoord({lat:35, long:59})
+            setCurrentCoord({lat:35, lon:59})
           }
     }, [navigator]);
 

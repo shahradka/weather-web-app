@@ -6,13 +6,13 @@ import WeatherCondition from "@components/molecules/weatherCondition/WeatherCond
 import { Card } from "@components/atoms/card";
 import { Text } from "@components/atoms/text";
 
-const WeatherCard = ({apparent_temperature_max, apparent_temperature_min, weather_code, dayOfWeek,...restProps}:
+const WeatherCard = ({appTempMax, appTempMin, weatherCode, dayOfWeek,...restProps}:
     HtmlHTMLAttributes<HTMLSpanElement> & GeneralWeatherData & {dayOfWeek?:string}) => {
     return <Card className="weather-card" {...restProps}>
-        <WeatherCondition code={weather_code} />
+        <WeatherCondition code={weatherCode} />
         <Text>{dayOfWeek}</Text>
-        <TemperatureIndicatorMaxSmall temperature={apparent_temperature_max} />
-        <TemperatureIndicatorMinSmall temperature={apparent_temperature_min} />
+        <TemperatureIndicatorMaxSmall temperature={appTempMax} />
+        <TemperatureIndicatorMinSmall temperature={appTempMin} />
     </Card>
 }
 

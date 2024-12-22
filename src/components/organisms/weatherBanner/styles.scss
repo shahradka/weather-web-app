@@ -1,3 +1,21 @@
-.weather-banner{
+@import '@sass/_variables.scss';
+
+.weather-banner-desc-text{
     align-items: center;
+}
+
+.weather-banner-desc{
+    justify-content: flex-start;
+}
+
+.flex-column{
+    flex-direction: column;
+}
+
+.weather-banner-desc-text-item{
+    padding-block: $spacing;
+}
+
+.unit-switch-spacing{
+    padding-right: $spacing;
 }

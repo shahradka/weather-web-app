@@ -1,5 +1,5 @@
 import axios from "axios";
-import { WEATHER_API_URL } from "../constants/environments";
+import { WEATHER_API_URL } from "@constants/environments";
 
 const axios_instance = axios.create({
     baseURL: WEATHER_API_URL,

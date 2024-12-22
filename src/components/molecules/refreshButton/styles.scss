@@ -1,0 +1,13 @@
+@import '@sass/_variables.scss';
+
+.btn{
+    color: $primary-base-rgba-ghost;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+}
+
+.btn:hover{
+    color: $primary-base-rgba-hovered;
+}

@@ -10,9 +10,10 @@ import clx from "classnames";
 /**
  * 
  * weather codes:
- * 0, 1, 2, 3 ----> clear 
- * 61, 63, 65, 66, 67, 80, 81, 82 ----> rainy 
- * 71, 73, 75, 77 ----> snow
+ * 8XX ----> clear 
+ * 5XX ----> rainy 
+ * 6XX ----> snow
+ * other cloudy
  * 
  */
 
@@ -24,24 +25,28 @@ interface IWeatherCondition extends HtmlHTMLAttributes<HTMLDivElement> {
 
 const WeatherCondition = ({size, code, ...restProps}:IWeatherCondition) => {
     switch(code){
-        case 0:
-        case 1:
-        case 2:
-        case 3:
+        case 800:
+        case 801:
+        case 802:
+        case 803:
             return size === "large"? <WeatherConditionSunnyLarge {...restProps} /> : <WeatherConditionSunnySmall {...restProps} />;
-        case 61:
-        case 63:
-        case 65:
-        case 66:
-        case 67:
-        case 80:
-        case 81:
-        case 82:
+        case 500:
+        case 501:
+        case 502:
+        case 511:
+        case 520:
+        case 521:
+        case 522:
             return size === "large"? <WeatherConditionRainyLarge {...restProps} /> : <WeatherConditionRainySmall {...restProps} />;
-        case 71:
-        case 73:
-        case 75:
-        case 77:
+        case 600:
+        case 601:
+        case 602:
+        case 610:
+        case 611:
+        case 612:  
+        case 621:
+        case 622:
+        case 623:
             return size === "large"? <WeatherConditionSnowyLarge {...restProps} /> : <WeatherConditionSnowySmall {...restProps} />;
         default:
             return size === "large"? <WeatherConditionCloudyLarge {...restProps} /> : <WeatherConditionCloudySmall {...restProps} />;

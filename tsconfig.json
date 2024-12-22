@@ -7,6 +7,9 @@
       "@sass/*": ["css/sass/*"],
       "@api/*": ["api/*"],
       "@hooks/*": ["hooks/*"],
+      "@constants/*": ["constants/*"],
+      "@utils/*": ["utils/*"],
+
     },
     "rootDir": "src",
     "target": "es5",
