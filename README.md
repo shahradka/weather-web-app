@@ -2,11 +2,11 @@
 
 ## descriptions
 
-This app showes weather for your locations in two different regions: 
+This app shows weather for your locations by using your nav coords: 
 
-* weather cards: showes next six days weather condition and min, max temperatures in both Celsius and Fahrenheit.
+* weather cards: shows next six days weather condition and min, max temperatures in both Celsius and Fahrenheit.
 
-For weather forecast utilze https://www.weatherbit.io/ Api
+For weather forecast utils https://www.weatherbit.io/ Api
 
 ## How to run
 
