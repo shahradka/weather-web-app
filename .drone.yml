@@ -3,8 +3,20 @@ type: docker
 name: frontend
 
 steps:
-- name: build
-  image: node
+- name: build-docker-image
+  image: docker
   commands:
-    - npm install
-    - npm test
+    -  echo Bulding docker image ...
+    -  docker build -t weather-web-app:latest .
+- name: docker-login
+  image: docker
+  environment:
+    PASSWORD:
+      from_secret: ne_password
+    USERNAME:
+      from_secret: ne_username
+  commands:
+    -  echo login to docker as user ...
+    -  docker login -u $USERNAME -p $PASSWORD
+    -  docker push  weather-web-app
+
