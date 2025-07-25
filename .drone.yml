@@ -4,12 +4,12 @@ name: frontend
 
 steps:
 - name: build-docker-image
-  image: docker
+  image: docker:latest
   commands:
-    -  echo Bulding docker image ...
+    -  echo Building docker image ...
     -  docker build -t weather-web-app:latest .
 - name: docker-login
-  image: docker
+  image: docker:latest
   environment:
     PASSWORD:
       from_secret: ne_password
@@ -17,6 +17,6 @@ steps:
       from_secret: ne_username
   commands:
     -  echo login to docker as user ...
-    -  docker login -u $USERNAME -p $PASSWORD
+    -  docker login https://reg.creativelab.top/repository/local-docker-image-registry/ -u $USERNAME -p $PASSWORD
     -  docker push  weather-web-app
 
