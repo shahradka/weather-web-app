@@ -5,6 +5,7 @@ steps:
 - name: build-docker-image
   image: plugins/docker
   settings:
+    repo: local-docker-image-registry/weather-web-app
     tags:
     - develop
     dockerfile: ./Dockerfile.yml
