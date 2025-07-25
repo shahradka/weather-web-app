@@ -2,24 +2,17 @@ kind: pipeline
 name: frontend
 
 steps:
-- name: build-docker-image
-  image: docker:latest
-  volumes:
-  - name: dockersock
-    path: "/var/run/docker.sock" # Mandatory
+- name: build-deploy-docker-image
+  image: plugins/docker
   settings:
-    dockerfile: "./Dockerfile.yml"
-  commands:
-    -  echo Building docker image ...
-    -  docker build -t weather-web-app:latest .
-- name: docker-login
-  image: docker:latest
-  environment:
-    PASSWORD:
-      from_secret: ne_password
-    USERNAME:
+    registry:
+      from_secret: image_registry
+    repo:
+      from_secret: image_repository
+    username:
       from_secret: ne_username
-  commands:
-    -  echo login to docker as user ...
-    -  docker login https://reg.creativelab.top/repository/local-docker-image-registry/ -u $USERNAME -p $PASSWORD
-    -  docker push  weather-web-app
+    password:
+      from_secret: ne_password
+    tags: 0.0.1
+    dockerfile: "./Dockerfile.yml"
+
