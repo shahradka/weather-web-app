@@ -5,6 +5,9 @@ steps:
 - name: build-docker-image
   image: plugins/docker
   settings:
+    tags:
+    - latest
+    - develop
     dockerfile: ./Dockerfile.yml
 - steps:
   name: sam_build
