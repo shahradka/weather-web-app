@@ -4,7 +4,7 @@ name: frontend
 steps:
 - steps:
   name: build_deploy
-  image: harnesscommunity/drone-nexus-publish
+  image: plugin/drone-nexus-publish
   environment:
     PASSWORD:
       from_secret: ne_password
