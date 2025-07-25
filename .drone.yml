@@ -5,7 +5,7 @@ steps:
 - name: build-deploy-docker-image
   image: plugins/docker
   settings:
-    registry: "https://reg.creativelab.top"
+    registry: "https://reg.creativelab.top/repository/local-docker-image-registry"
     repo: "local-docker-image-registry"
     username:
       from_secret: ne_username
