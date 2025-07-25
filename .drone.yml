@@ -4,8 +4,11 @@ name: frontend
 steps:
 - name: build-docker-image
   image: docker:latest
+  volumes:
+  - name: dockersock
+    path: "/var/run/docker.sock" # Mandatory
   settings:
-    dockerfile: ./Dockerfile.yml
+    dockerfile: "./Dockerfile.yml"
   commands:
     -  echo Building docker image ...
     -  docker build -t weather-web-app:latest .
