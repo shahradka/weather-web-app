@@ -2,20 +2,21 @@ kind: pipeline
 name: frontend
 
 steps:
-- steps:
-  name: build_deploy
-  image: plugin/drone-nexus-publish
+- name: build-docker-image
+  image: docker:latest
+  settings:
+    dockerfile: ./Dockerfile.yml
+  commands:
+    -  echo Building docker image ...
+    -  docker build -t weather-web-app:latest .
+- name: docker-login
+  image: docker:latest
   environment:
     PASSWORD:
       from_secret: ne_password
     USERNAME:
       from_secret: ne_username
-  settings:
-    dockerfile: ./Dockerfile.yml
-    username: $USERNAME
-    password: $PASSWORD
-    server_url: https://reg.creativelab.top
-    filename: ./target/weather-web-app.jar
-    format: docker
-    repository: local-docker-image-registry
-    attributes: "-CgroupId=org.testing -CartifactId=example -Cversion=1.0 -Aextension=jar -Aclassifier=bin"
+  commands:
+    -  echo login to docker as user ...
+    -  docker login https://reg.creativelab.top/repository/local-docker-image-registry/ -u $USERNAME -p $PASSWORD
+    -  docker push  weather-web-app
