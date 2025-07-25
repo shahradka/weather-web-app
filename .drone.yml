@@ -1,15 +1,13 @@
 kind: pipeline
-type: docker
+type: exec
 name: frontend
 
 steps:
 - name: build-docker-image
-  image: docker:latest
   commands:
     -  echo Building docker image ...
     -  docker build -t weather-web-app:latest .
 - name: docker-login
-  image: docker:latest
   environment:
     PASSWORD:
       from_secret: ne_password
