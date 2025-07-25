@@ -4,6 +4,7 @@ name: frontend
 steps:
 - name: build-docker-image
   image: docker:latest
+  privileged: true
   commands:
     -  echo Building docker image ...
     -  docker build -t weather-web-app:latest .
