@@ -2,15 +2,8 @@ kind: pipeline
 name: frontend
 
 steps:
-- name: build-docker-image
-  image: plugins/docker
-  settings:
-    repo: local-docker-image-registry/weather-web-app
-    tags:
-    - develop
-    dockerfile: ./Dockerfile.yml
 - steps:
-  name: sam_build
+  name: build_deploy
   image: harnesscommunity/drone-nexus-publish
   environment:
     PASSWORD:
@@ -18,10 +11,11 @@ steps:
     USERNAME:
       from_secret: ne_username
   settings:
+    dockerfile: ./Dockerfile.yml
     username: $USERNAME
     password: $PASSWORD
     server_url: https://reg.creativelab.top
-    filename: ./target/example.jar
+    filename: ./target/weather-web-app.jar
     format: docker
     repository: local-docker-image-registry
     attributes: "-CgroupId=org.testing -CartifactId=example -Cversion=1.0 -Aextension=jar -Aclassifier=bin"
