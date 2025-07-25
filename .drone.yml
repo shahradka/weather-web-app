@@ -3,18 +3,22 @@ name: frontend
 
 steps:
 - name: build-docker-image
-  image: docker:latest
-  commands:
-    -  echo Building docker image ...
-    -  docker build -t weather-web-app:latest .
-- name: docker-login
-  image: docker:latest
+  image: plugins/docker
+  settings:
+    dockerfile: ./Dockerfile.yml
+- steps:
+  name: sam_build
+  image: harnesscommunity/drone-nexus-publish
   environment:
     PASSWORD:
       from_secret: ne_password
     USERNAME:
       from_secret: ne_username
-  commands:
-    -  echo login to docker as user ...
-    -  docker login https://reg.creativelab.top/repository/local-docker-image-registry/ -u $USERNAME -p $PASSWORD
-    -  docker push  weather-web-app
+  settings:
+    username: $USERNAME
+    password: $PASSWORD
+    server_url: https://reg.creativelab.top
+    filename: ./target/example.jar
+    format: docker
+    repository: local-docker-image-registry
+    attributes: "-CgroupId=org.testing -CartifactId=example -Cversion=1.0 -Aextension=jar -Aclassifier=bin"
