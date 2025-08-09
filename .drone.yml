@@ -6,7 +6,7 @@ steps:
   image: plugins/docker
   settings:
     registry: "localhost:32000"
-    repo: "weather-web-app"
+    repo: "localhost:32000/weather-web-app"
     tags: 
       - 0.0.1
     dockerfile: "./Dockerfile.yml"
