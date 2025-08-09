@@ -1,12 +1,12 @@
 kind: pipeline
-name: frontend
+name: front-end
 
 steps:
 - name: build-deploy-docker-image
   image: plugins/docker
   settings:
     registry: "localhost:32000"
-    repo: "front-end"
+    repo: "weather-web-app"
     tags: 
       - 0.0.1
     dockerfile: "./Dockerfile.yml"
