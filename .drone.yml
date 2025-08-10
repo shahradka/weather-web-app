@@ -4,11 +4,12 @@ name: front-end
 
 steps:
 - name: build-deploy-docker-image
-  image: localhost:32000/weather-web-app:0.0.1
+  image: docker:latest
   settings:
     registry: "localhost:32000"
-    repo: "localhost:32000/weather-web-app"
+    repo: "localhost:32000/weather-web-app"  # Change this to match your desired repository
     tags: 
       - 0.0.1
     dockerfile: "./Dockerfile.yml"
+
 
