@@ -1,9 +1,10 @@
 kind: pipeline
+type: docker
 name: front-end
 
 steps:
 - name: build-deploy-docker-image
-  image: plugins/docker
+  image: localhost:32000/weather-web-app:0.0.1
   settings:
     registry: "localhost:32000"
     repo: "localhost:32000/weather-web-app"
