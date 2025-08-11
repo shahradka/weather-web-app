@@ -4,7 +4,7 @@ name: default
 
 steps:
 - name: build
-  image: node:alpine
+  image: docker:latest
   commands:
     - docker build -t localhost:32000:weather-app-web:0.0.2
     
