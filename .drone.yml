@@ -3,8 +3,8 @@ type: docker
 name: default
 
 steps:
-- name: test
-  image: alpine
+- name: build
+  image: node:alpine
   commands:
-  - echo hello
-  - echo world
+    - docker build -t localhost:32000:weather-app-web:0.0.2
+    
