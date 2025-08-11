@@ -1,16 +1,10 @@
 kind: pipeline
 type: docker
-name: front-end
+name: default
 
 steps:
-- name: build-deploy-docker-image
-  image: docker:latest
-  privileged: true  # Add this line
-  settings:
-    registry: "localhost:32000"
-    repo: "localhost:32000/weather-web-app"
-    tags: 
-      - 0.0.1
-    dockerfile: "./Dockerfile.yml"
-
-
+- name: test
+  image: alpine
+  commands:
+  - echo hello
+  - echo world
